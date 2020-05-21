@@ -4,10 +4,18 @@ const fs =require('fs')
 var dbJWT = {};
 
 const file=fs.readFileSync('.env').toString()
+
+var dbJWT = {};
+
+const file=fs.readFileSync('.env').toString()
 // console.log(file)
 
 // Creates mySQL connection using Sequelize, the empty string in the third argument spot is our password.
+
 const sequelize = new Sequelize("orm_jwt", "root", file, {
+
+
+
     host: "localhost",
     port: 3306,
     dialect: "mysql",
