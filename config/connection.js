@@ -1,13 +1,18 @@
 var Sequelize = require("sequelize");
 var db = {}
 // console.log(Sequelize)
+const fs =require('fs')
+const file=fs.readFileSync('.env').toString()
 console.log("running connection.js")
 
 const dbpass = fs.readFileSync('.env').toString()
 console.log(dbpass)
 
 // Creates mySQL connection using Sequelize, the empty string in the third argument spot is our password.
+
+
 const sequelize = new Sequelize("node_orm", "root", dbpass, {
+
     host: "localhost",
     port: 3306,
     dialect: "mysql",
