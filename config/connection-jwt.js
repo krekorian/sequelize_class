@@ -1,9 +1,13 @@
 var Sequelize = require("sequelize");
+const fs =require('fs')
 
 var dbJWT = {};
 
+const file=fs.readFileSync('.env').toString()
+// console.log(file)
+
 // Creates mySQL connection using Sequelize, the empty string in the third argument spot is our password.
-const sequelize = new Sequelize("orm_jwt", "root", "Ucla1234", {
+const sequelize = new Sequelize("orm_jwt", "root", file, {
     host: "localhost",
     port: 3306,
     dialect: "mysql",
@@ -20,7 +24,7 @@ sequelize.authenticate().then(function (success) {
     console.log("successfully connected to database orm_jwt    <<<<<<<")
     // console.log(success)    >>>  success is undefined
 }).catch(function (error) {
-    console.log("error connecting to database")
+    console.log("error connecting to database orm_jwt")
     console.log(error)
 });
 
